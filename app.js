@@ -1,14 +1,9 @@
-const http = require('http');
+import express from 'express';
+import bodyParser from 'body-parser';
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express();
+const PORT = "5000";
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
+app.use(express.json());
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(PORT, () => console.log(`Servidor em execução em http://localhost:${PORT}`));
