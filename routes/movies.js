@@ -4,7 +4,14 @@ import { userInfo } from 'os';
 import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
-let movies = []
+let movies = [{
+    name:"vvv",
+    relaseDate:"24/12/1991",
+    productor:"asadas",
+    leadActor:"Mddaulyn Kacuklyn",
+    studio:"20th  Century Fox",
+    genre:"Horror"
+}]
 
 router.get('/', (req, res) =>{
     
@@ -13,26 +20,41 @@ router.get('/', (req, res) =>{
     res.send(movies);
 });
 
+//Gravando 
+function saveMovie(movie){
+    movies.push({ ...movie, id: uuidv4()});
+    
+}
 
 //Incluindo um filme
 router.post('/', (req, res) => {
-    const movie = req.body;
+    const newMovieName = req.body.name;
+    const newMovieStudio = req.body.studio;
+    const newReleaseDate = req.body.relaseDate;
     
+    if(movies.find((movie) => movie.name === newMovieName) && movies.find((movie) => movie.studio === newMovieStudio) && movies.find((movie) => movie.relaseDate === newReleaseDate)){
+        console.log("Esse filme já existe");
+        res.status(428).send(`The movie ${newMovieName} already exists, little dumb-dumb`);
+    } else{
+        saveMovie(req.body);
+        res.status(200).send(`O filme ${req.body.name} foi adicionado`);
+        console.log(movies.find((movie) => movie.name === newMovieName));
+        
+    }
     
-    movies.push({ ...movie, id: uuidv4()});
     
     
 
-    res.status(200).send(`O filme ${movie.name} foi adicionado`);
+    
 })
 
 
 
 //retornando filme by ID
-router.get('/:id', (req, res) =>{
-    const { id } = req.params;
+router.get('/:name', (req, res) =>{
+    const { name } = req.params;
 
-    const foundMovie = movies.find((movie) => movie.id === id);
+    const foundMovie = movies.find((movie) => movie.name === name);
     
 
     res.send(foundMovie);
