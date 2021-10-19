@@ -41,16 +41,13 @@ router.post('/', (req, res) => {
         console.log(movies.find((movie) => movie.name === newMovieName));
         
     }
-    
-    
-    
-
+        
     
 })
 
 
 
-//retornando filme by ID
+//retornando filme by name
 router.get('/:name', (req, res) =>{
     const { name } = req.params;
 
