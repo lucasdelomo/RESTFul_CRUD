@@ -15,5 +15,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasdelomo/RESTFul_CRUD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lucasdelomo/RESTFul_CRUD/issues"
+  },
+  "homepage": "https://github.com/lucasdelomo/RESTFul_CRUD#readme"
 }
