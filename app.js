@@ -10,5 +10,5 @@ app.use('/movies', moviesRoutes);
 
 app.get('/', (req, res) => res.send('Nada para ver aqui u.u'));
 
-app.listen(PORT, () => console.log(`Servidor em execução em http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Servidor em execução`));
 
