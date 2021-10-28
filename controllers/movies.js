@@ -9,7 +9,7 @@ export const returnMovies =(req, res) =>{
      } else{
         res.send(movies);
      };    
-};
+}; 
 
 export const createMovie = (req,res) => {
 
