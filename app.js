@@ -1,6 +1,7 @@
 import express from 'express';
 import moviesRoutes from './routes/movies.js';
 
+
 const app = express();
 const PORT = "5000";
 
